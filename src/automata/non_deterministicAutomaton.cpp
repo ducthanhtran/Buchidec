@@ -1,10 +1,12 @@
+// Author: Duc Thanh Tran
 #include "non_deterministicAutomaton.hpp"
+#include <algorithm>
 
-NonDeterministicAutomaton::NonDeterministicAutomaton(const uint numberOfStates, const uint initialState) : Automaton(numberOfStates, initialState) {}
+NonDeterministicAutomaton::NonDeterministicAutomaton(const int numberOfStates, const int initialState) : Automaton(numberOfStates, initialState) {}
 
-void NonDeterministicAutomaton::addTransition(const uint p, const std::pair<char,uint> &targetPair) noexcept {
-    if (p > m_numberOfStates || targetPair.second > m_numberOfStates) { return; }
-    // Disallows already constructed transitions
+void NonDeterministicAutomaton::addTransition(const int p, const char a, const int q) {
+    if (p > m_numberOfStates || q > m_numberOfStates) { return; }
+    // Disallows already constructed transition (p,a,q)
     const auto searchResult = std::find(m_transitions.cbegin(), m_transitions.cend(), targetPair);
     if (searchResult == m_transitions.cend()) {
         m_transitions.emplace(std::make_pair(p, std::make_pair(a,q)));
