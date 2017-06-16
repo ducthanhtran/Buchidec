@@ -3,7 +3,8 @@
 #ifndef _STATE_HPP_
 #define _STATE_HPP_
 
-#include <unordered_multimap>
+#include <tuple>
+#include <vector>
 
 namespace Buchidec {
 
@@ -17,8 +18,8 @@ public:
 private:
     bool m_isFinal;
 
-    //! We consider an alphabet consisting of integers
-    std::unordered_multimap<int,State> m_transitions;
+    //! We consider an alphabet consisting of integers.
+    std::vector<std::pair<int,State>> m_transitions;
 };
 
 } // namespace Buchidec
