@@ -11,6 +11,13 @@ namespace Buchidec {
 class Automaton {
 public:
     Automaton() = default;
+    //! Initializes an automaton with a set of states
+    //!
+    Automaton(std::vector<State>, const State initialState);
+
+    inline void addEdge(State &source, const int label, const State &target) {
+        
+    }
 
 private:
     std::vector<State> m_states;
