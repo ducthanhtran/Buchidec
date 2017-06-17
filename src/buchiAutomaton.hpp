@@ -3,7 +3,6 @@
 #ifndef _AUTOMATON_HPP_
 #define _AUTOMATON_HPP_
 
-#include <state.hpp>
 #include <string>
 #include <tuple>
 #include <vector>
