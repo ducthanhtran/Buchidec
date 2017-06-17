@@ -1,7 +1,7 @@
 CXX = g++
-CXXFLAGS = -std=c++11 $(OPT) $(WARNING)
+CXXFLAGS = -std=c++14 $(OPT) $(WARNING)
 OPT = -O3 -flto -march=native
 WARNING = -Wall
 
-all: buchidec
+all: INWAD
 	$(CXX) $(CXXFLAGS) -o
