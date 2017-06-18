@@ -16,10 +16,10 @@ using Transition = std::pair<std::string,State>;
 class BuchiAutomaton {
 public:
     BuchiAutomaton() = default;
-    BuchiAutomaton(const int numberOfStates);
+    BuchiAutomaton(const int numberOfStates, const std::vector<std::string> &alphabet, const State initialState);
 
     void addEdge(const State source, const std::string &label, const State target);
-    
+
     //! Union operation
     friend BuchiAutomaton operator|(const BuchiAutomaton &autA, const BuchiAutomaton &autB);
     //! Intersection operation
@@ -31,6 +31,9 @@ public:
 private:
     std::vector<std::vector<Transition>> m_adjacencyList;
     State m_initialState;
+
+
+    std::vector<std::string> m_alphabet;
 };
 
 } // namespace INWAD
