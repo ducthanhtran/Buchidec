@@ -19,6 +19,7 @@ public:
     BuchiAutomaton(const int numberOfStates);
 
     void addEdge(const State source, const std::string &label, const State target);
+    
     //! Union operation
     friend BuchiAutomaton operator|(const BuchiAutomaton &autA, const BuchiAutomaton &autB);
     //! Intersection operation

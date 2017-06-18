@@ -15,7 +15,7 @@ BuchiAutomaton operator&(const BuchiAutomaton &autA, const BuchiAutomaton &autB)
 }
 
 BuchiAutomaton operator~(const BuchiAutomaton &autA) {
-    // TODO    
+    // TODO
 }
 
 } // namespace INWAD
