@@ -2,10 +2,13 @@
 #define _INPUT_HPP_
 
 #include <buchiAutomaton.hpp>
-#include <ifstream>
 #include <string>
+#include <vector>
 
 namespace INWAD {
+    namespace DetailInput {
+        std::vector<std::string> getAlphabet(const std::string &contentLine);
+    }
 
 //! Reads an Buchi automaton from a file.
 //!
@@ -16,34 +19,12 @@ namespace INWAD {
 //!    't' q a p : transition from state q to p with label a
 //!
 //! The first line we read denotes the amount of states in the automaton.
+//! In the second line we list the alphabet where each element is seperated
+//! by a whitespace.
+//! The initial state is mentioned in the third line
+//!
 //! If we cannot read the file we return an empty Buchi automaton.
-BuchiAutomaton read(const std::string filepath) {
-    std::ifstream file(filepath);
-
-    if (!file.is_open()) {
-        BuchiAutomaton empty;
-        return empty;
-    }
-
-    // Read in amount of states from first line
-    std::string stateSize;
-    std::getline(file, stateSize);
-    BuchiAutomaton aut(std::stoi(stateSize));
-
-    // Add transitions
-    // TODO: alphabet size, what is alphabet
-    while (c << file) {
-        switch(c) {
-            case 'c':
-                std::getline(file, lineContent);
-                break;
-            case 't':
-                // TODO
-        }
-    }
-    
-    return aut;
-}
+BuchiAutomaton read(const std::string filepath);
 
 } // namespace INWAD
 #endif
