@@ -1,5 +1,3 @@
-// Author: Duc Thanh Tran
-
 #ifndef _AUTOMATON_HPP_
 #define _AUTOMATON_HPP_
 
@@ -20,10 +18,12 @@ public:
 
     void addEdge(const State source, const std::string &label, const State target);
 
+    inline int states() const noexcept { return static_cast<int>(m_adjacencyList.size()); }
+
     //! Union operation
     friend BuchiAutomaton operator|(const BuchiAutomaton &autA, const BuchiAutomaton &autB);
     //! Intersection operation
-    friend BuchiAutomaton operator&(const BuchiAutomaton &autB, const BuchiAutomaton &autB);
+    friend BuchiAutomaton operator&(const BuchiAutomaton &autA, const BuchiAutomaton &autB);
     //! Complementation operation
     friend BuchiAutomaton operator~(const BuchiAutomaton &aut);
 
@@ -31,7 +31,7 @@ public:
 private:
     std::vector<std::vector<Transition>> m_adjacencyList;
     std::vector<std::string> m_alphabet;
-        State m_initialState;
+    State m_initialState;
 };
 
 } // namespace INWAD
