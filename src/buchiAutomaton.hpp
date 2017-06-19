@@ -3,6 +3,7 @@
 
 #include <string>
 #include <tuple>
+#include <unordered_map>
 #include <vector>
 
 namespace INWAD {
@@ -16,9 +17,10 @@ public:
     BuchiAutomaton() = default;
     BuchiAutomaton(const int numberOfStates, const std::vector<std::string> &alphabet, const State initialState);
 
-    void addEdge(const State source, const std::string &label, const State target);
+    inline int states() const noexcept { return static_cast<int>(m_transitions.size()); }
+    int transitions() const noexcept;
 
-    inline int states() const noexcept { return static_cast<int>(m_adjacencyList.size()); }
+    void addTransition(const State source, const std::string &label, const State target);
 
     //! Union operation
     friend BuchiAutomaton operator|(const BuchiAutomaton &autA, const BuchiAutomaton &autB);
@@ -29,7 +31,8 @@ public:
 
 
 private:
-    std::vector<std::vector<Transition>> m_adjacencyList;
+    // Adjacency list
+    std::vector<std::unordered_multimap<std::string,State>> m_transitions;
     std::vector<std::string> m_alphabet;
     State m_initialState;
 };
