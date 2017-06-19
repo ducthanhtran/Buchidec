@@ -22,7 +22,9 @@ buchiAutomaton.o: $(SRC)/buchiAutomaton.cpp $(SRC)/buchiAutomaton.hpp
 
 ##########################################
 
-tests: buchiAutomaton_test.o $(SRC_TEST)/maintest.cpp
+tests: makedirs maintest
+
+maintest: buchiAutomaton_test.o $(SRC_TEST)/maintest.cpp
 	$(CXX) $(CXXFLAGS) -o $(BIN_TEST)/testBuchi $(SRC_TEST)/maintest.cpp $(OBJ_TEST)/buchiAutomaton_test.o
 
 buchiAutomaton_test.o: $(SRC_TEST)/buchiAutomaton_test.cpp $(SRC)/buchiAutomaton.cpp $(SRC)/buchiAutomaton.hpp
