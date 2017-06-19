@@ -30,10 +30,8 @@ public:
 
 private:
     std::vector<std::vector<Transition>> m_adjacencyList;
-    State m_initialState;
-
-
     std::vector<std::string> m_alphabet;
+        State m_initialState;
 };
 
 } // namespace INWAD
