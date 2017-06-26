@@ -38,5 +38,4 @@ private:
 };
 
 } // namespace INWAD
-
 #endif
