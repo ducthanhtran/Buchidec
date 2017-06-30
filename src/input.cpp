@@ -1,12 +1,17 @@
-
 #include <input.hpp>
 #include <ifstream>
+#include <sstream>
 
 namespace INWAD {
     namespace DetailInput {
         std::vector<std::string> getAlphabet(const std::string &contentLine) {
             std::vector<std::string> alphabet;
-            // TODO
+            std::stringstream s(contentLine);
+
+            std::string str;
+            while(alphabet >> str) {
+                alphabet.emplace_back(str)
+            }
             return alphabet;
         }
     }
@@ -42,7 +47,6 @@ BuchiAutomaton read(const std::string filepath) {
                 break;
 
             case 't':
-                // TODO
                 // std::basic_istringstream
 
 
