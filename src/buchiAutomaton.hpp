@@ -1,5 +1,4 @@
-#ifndef _AUTOMATON_HPP_
-#define _AUTOMATON_HPP_
+#pragma once
 
 #include <string>
 #include <tuple>
@@ -10,12 +9,13 @@ namespace INWAD {
 
 using State = unsigned long;
 using Transition = std::pair<std::string,State>;
+using Alphabet = std::vector<std::string>;
 
 //! A non-deterministic Buchi Automaton.
 class BuchiAutomaton {
 public:
     BuchiAutomaton() = default;
-    BuchiAutomaton(const int numberOfStates, const std::vector<std::string> &alphabet, const State initialState);
+    BuchiAutomaton(const int numberOfStates, const Alphabet &alphabet, const State initialState);
 
     inline int states() const noexcept { return static_cast<int>(m_transitions.size()); }
     int transitions() const noexcept;
@@ -33,9 +33,8 @@ public:
 private:
     // Adjacency list
     std::vector<std::unordered_multimap<std::string,State>> m_transitions;
-    std::vector<std::string> m_alphabet;
+    Alphabet m_alphabet;
     State m_initialState;
 };
 
 } // namespace INWAD
-#endif
