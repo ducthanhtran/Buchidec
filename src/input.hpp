@@ -1,5 +1,4 @@
-#ifndef _INPUT_HPP_
-#define _INPUT_HPP_
+#pragma once
 
 #include <buchiAutomaton.hpp>
 #include <string>
@@ -29,4 +28,3 @@ namespace INWAD {
 BuchiAutomaton read(const std::string filepath);
 
 } // namespace INWAD
-#endif

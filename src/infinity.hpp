@@ -1,5 +1,4 @@
-#ifndef _INFINITY_HPP_
-#define _INFINITY_HPP_
+#pragma once
 
 namespace INWAD {
     namespace Detail {
@@ -10,4 +9,3 @@ namespace INWAD {
     //! that is, |L(aut)| is infinite.
     bool isInfiniteLanguage(const BuchiAutomaton &aut);
 } // namespace INWAD
-#endif

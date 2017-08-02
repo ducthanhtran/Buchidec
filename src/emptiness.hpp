@@ -1,5 +1,4 @@
-#ifndef _EMPTINESS_HPP_
-#define _EMPTINESS_HPP_
+#pragma once
 
 namespace INWAD {
     namespace Detail {
@@ -8,4 +7,3 @@ namespace INWAD {
 
     bool isEmptyLanguage(const BuchiAutomaton &aut);
 } // namespace INWAD
-#endif
