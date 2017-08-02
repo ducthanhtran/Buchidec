@@ -12,7 +12,7 @@ namespace INWAD {
         std::vector<std::string> getAlphabet(const std::string &contentLine);
     }
 
-//! Reads an Buchi automaton from a file.
+//! Reads a Buchi automaton from a file.
 //!
 //! The file has a specific format. Each line's first letter denotes
 //! what type of line will be read.
