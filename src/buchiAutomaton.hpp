@@ -8,7 +8,6 @@
 namespace INWAD {
 
 using State = unsigned long;
-using Transition = std::pair<std::string,State>;
 using Alphabet = std::vector<std::string>;
 
 //! A non-deterministic Buchi Automaton.
