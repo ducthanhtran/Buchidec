@@ -14,7 +14,7 @@ using Alphabet = std::vector<std::string>;
 //! A non-deterministic Buchi Automaton.
 class BuchiAutomaton {
 public:
-    BuchiAutomaton() = default;
+    BuchiAutomaton() = delete;
     BuchiAutomaton(const int numberOfStates, const Alphabet &alphabet, const State initialState);
 
     inline int states() const noexcept { return static_cast<int>(m_transitions.size()); }
