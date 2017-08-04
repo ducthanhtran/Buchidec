@@ -8,7 +8,8 @@
 namespace INWAD {
 
 using State = unsigned long;
-using Alphabet = std::vector<std::string>;
+using Letter = std::string;
+using Alphabet = std::vector<Letter>;
 
 //! A non-deterministic Buchi Automaton.
 class BuchiAutomaton {
@@ -19,7 +20,7 @@ public:
     inline int num_states() const noexcept { return static_cast<int>(m_transitions.size()); }
     int num_transitions() const noexcept;
 
-    void addTransition(const State source, const std::string &label, const State target);
+    void addTransition(const State source, const Letter &letter, const State target);
 
     //! Union operation
     friend BuchiAutomaton operator|(const BuchiAutomaton &autA, const BuchiAutomaton &autB);
@@ -31,7 +32,7 @@ public:
 
 private:
     // Adjacency list
-    std::vector<std::unordered_multimap<std::string,State>> m_transitions;
+    std::vector<std::unordered_multimap<Letter,State>> m_transitions;
     const Alphabet m_alphabet;
     const State m_initialState;
 };

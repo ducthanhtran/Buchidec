@@ -5,12 +5,12 @@
 namespace INWAD {
     namespace DetailInput {
         std::vector<std::string> getAlphabet(const std::string &contentLine) {
-            std::vector<std::string> alphabet;
+            Alphabet alphabet;
             std::istringstream s(contentLine);
 
-            std::string str;
-            while(s >> str) {
-                alphabet.emplace_back(str)
+            Letter letter;
+            while(s >> letter) {
+                alphabet.emplace_back(letter)
             }
             return alphabet;
         }
@@ -54,7 +54,7 @@ BuchiAutomaton read(const std::string &filepath) {
 
                 State q;
                 State p;
-                std::string a;
+                Letter a;
                 s >> q >> a >> p;
                 aut.addTransition(q, a, p);
                 break;
