@@ -16,7 +16,7 @@ namespace INWAD {
         }
     }
 
-BuchiAutomaton read(const std::string filepath) {
+BuchiAutomaton read(const std::string &filepath) {
     std::ifstream file(filepath);
 
     if (!file.is_open()) {

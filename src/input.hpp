@@ -26,6 +26,6 @@ namespace INWAD {
 //!
 //! If we cannot read the file (correctly according to the format mentioned
 //! above), then an empty Buchi automaton is returned.
-BuchiAutomaton read(const std::string filepath);
+BuchiAutomaton read(const std::string &filepath);
 
 } // namespace INWAD
