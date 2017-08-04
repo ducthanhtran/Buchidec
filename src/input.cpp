@@ -4,12 +4,14 @@
 
 namespace INWAD {
     namespace DetailInput {
+        //! Parses the alphabet from a string, which contains
+        //! words seperated by whitespaces into into a vector of strings.
         std::vector<std::string> getAlphabet(const std::string &contentLine) {
             std::vector<std::string> alphabet;
             std::stringstream s(contentLine);
 
             std::string str;
-            while(alphabet >> str) {
+            while(s >> str) {
                 alphabet.emplace_back(str)
             }
             return alphabet;
