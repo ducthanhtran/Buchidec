@@ -6,7 +6,7 @@ namespace INWAD {
     namespace DetailInput {
         std::vector<std::string> getAlphabet(const std::string &contentLine) {
             std::vector<std::string> alphabet;
-            std::stringstream s(contentLine);
+            std::istringstream s(contentLine);
 
             std::string str;
             while(s >> str) {
