@@ -57,4 +57,3 @@ BuchiAutomaton read(const std::string filepath) {
 }
 
 } // namespace INWAD
-#endif
