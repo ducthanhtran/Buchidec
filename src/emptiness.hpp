@@ -5,5 +5,5 @@ namespace INWAD {
 
     } // namespace Detail
 
-    bool isEmptyLanguage(const BuchiAutomaton &aut);
+    bool acceptsEmptyLanguage(const BuchiAutomaton &aut);
 } // namespace INWAD
