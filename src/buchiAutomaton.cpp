@@ -17,7 +17,9 @@ void BuchiAutomaton::addTransition(const State source, const std::string &label,
     if (index != m_alphabet.cend()) {
         // Disallow duplicate transitions
         const auto range = m_transitions[source].equal_range(label);
-        const auto sameTrans = std::find_if(range.first, range.second, [target](const auto &elem) { return elem.second == target; });
+        const auto sameTrans = std::find_if(range.first, range.second,
+            [target](const auto &elem) { return elem.second == target; });
+        
         if (sameTrans == m_transitions[source].cend()) {
             m_transitions[source].emplace(label, target);
         }
