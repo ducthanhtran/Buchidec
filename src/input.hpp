@@ -7,7 +7,7 @@
 namespace INWAD {
     namespace DetailInput {
         //! Extracts the alphabet from the contentLine and returns it as a
-        //! vector. The strings of the alphabet are seperated by whitespaces.
+        //! vector of strings. The words in contentLine are seperated by whitespaces.
         std::vector<std::string> getAlphabet(const std::string &contentLine);
     }
 
