@@ -6,7 +6,7 @@ namespace INWAD {
 BuchiAutomaton::BuchiAutomaton(const int numberOfStates, const Alphabet &alphabet, const State initialState)
     : m_transitions(numberOfStates), m_alphabet(alphabet), m_initialState(initialState) {}
 
-int BuchiAutomaton::transitions() const noexcept {
+int BuchiAutomaton::num_transitions() const noexcept {
     return std::accumulate(m_transitions.cbegin(), m_transitions.cend(), 0,
         [](const auto acc, const auto &map) { return acc + static_cast<int>(map.size()); });
 }
