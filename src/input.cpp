@@ -26,17 +26,19 @@ BuchiAutomaton read(const std::string &filepath) {
 
     std::string lineContent;
 
-    // Read in amount of states from first line
+    // Read in amount of states, first line
     std::getline(file, lineContent);
     const auto numberOfStates = std::stoi(lineContent);
 
-    // Alphabet processing from second line
+    // Read and parse alphabet, second line
     std::getline(file, lineContent);
     const auto alphabet = DetailInput::getAlphabet(lineContent);
 
-    // Initial state, third line
+    // Read in initial state, third line
     std::getline(file, lineContent);
-    BuchiAutomaton aut(numberOfStates, alphabet, std::stoul(lineContent));
+    const auto initialState = std::stoul(lineContent);
+
+    BuchiAutomaton aut(numberOfStates, alphabet, initialState);
 
     // Add transitions
     char c;
