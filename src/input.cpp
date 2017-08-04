@@ -49,9 +49,19 @@ BuchiAutomaton read(const std::string &filepath) {
                 break;
 
             case 't':
-                // std::basic_istringstream
+                std::getline(file, lineContent);
+                std::istringstream s(lineContent);
 
+                State q;
+                State p;
+                std::string a;
+                s >> q >> a >> p;
+                aut.addTransition(q, a, p);
+                break;
 
+            default:
+                BuchiAutomaton empty;
+                return empty;
         }
     }
 
