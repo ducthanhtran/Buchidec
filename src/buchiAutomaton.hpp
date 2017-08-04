@@ -16,8 +16,8 @@ public:
     BuchiAutomaton() = delete;
     BuchiAutomaton(const int numberOfStates, const Alphabet &alphabet, const State initialState);
 
-    inline int states() const noexcept { return static_cast<int>(m_transitions.size()); }
-    int transitions() const noexcept;
+    inline int num_states() const noexcept { return static_cast<int>(m_transitions.size()); }
+    int num_transitions() const noexcept;
 
     void addTransition(const State source, const std::string &label, const State target);
 
