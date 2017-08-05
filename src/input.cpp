@@ -2,6 +2,7 @@
 #include <ifstream>
 #include <sstream>
 
+
 namespace INWAD {
     namespace DetailInput {
         std::vector<std::string> getAlphabet(const std::string &contentLine) {

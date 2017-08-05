@@ -1,6 +1,7 @@
 #include <buchiAutomaton.hpp>
 #include <algorithm>
 
+
 namespace INWAD {
 
 BuchiAutomaton::BuchiAutomaton(const int numberOfStates, const Alphabet &alphabet, const State initialState)
