@@ -33,8 +33,8 @@ public:
 private:
     // Adjacency list
     std::vector<std::unordered_multimap<Letter,State>> m_transitions;
-    const Alphabet m_alphabet;
-    const State m_initialState;
+    Alphabet m_alphabet;
+    State m_initialState;
 };
 
 } // namespace INWAD
