@@ -5,7 +5,6 @@
 #include <unordered_map>
 #include <vector>
 
-
 namespace INWAD {
 
 using State = unsigned long;

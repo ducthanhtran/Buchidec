@@ -4,7 +4,6 @@
 #include <string>
 #include <vector>
 
-
 namespace INWAD {
     namespace DetailInput {
         //! Extracts the alphabet from the contentLine and returns it as a
