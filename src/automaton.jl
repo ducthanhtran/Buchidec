@@ -35,3 +35,16 @@ function add_transition!(aut::Automaton, source::Int, label::Int, target::Int)
         push!(D[source], t)
     end
 end
+
+function set_alphabet!(aut::Automaton, newAlphabetSize::Int)
+    if newAlphabetSize < aut.alphabetSize
+        for i = 1:aut.states
+            for (label,target) in aut.transitions[i]
+                if label > newAlphabetSize
+                    delete!(aut.transitions[i], (label,target))
+                end
+            end
+        end
+    end
+    aut.alphabetSize = newAlphabetSize
+end
