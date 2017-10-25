@@ -1,24 +1,37 @@
-const State = Int64
-const Label = Int64
+const State = Int
+const Label = Int
 
 mutable struct Automaton
     states::Int
     initStates::IntSet
     finalStates::IntSet
     alphabetSize::Int
-    transitions::Dict{State, Tuple{Int,State}}
+    transitions::Dict{State, Set{Tuple{Int,State}}}
+end
 
-    Automaton() = new(0, IntSet(), IntSet(), 0, Dict{State, Tuple{Int,State}}())
-    Automaton(states::Int) = new(states, IntSet(), IntSet(), 0, Dict{State, Tuple{Int,State}}())
-    Automaton(states::Int, alphabetSize::Int) = new(states, IntSet(), IntSet(), alphabetSize, Dict{State, Tuple{Int,State}}())
+Automaton() = Automaton(0, IntSet(), IntSet(), 0, Dict{State, Set{Tuple{Int,State}}}())
+
+function Automaton(states::Int)
+    aut = Automaton()
+    add_states!(aut,states)
+    return aut
 end
 
 function add_states!(aut::Automaton, numberOfNewStates::Int)
+     for i = 1:numberOfNewStates
+         key = aut.states + i
+         push!(aut.transitions, key=>Set())
+     end
      aut.states += numberOfNewStates
 end
 
 function add_transition!(aut::Automaton, source::Int64, label::Int64, target::Int64)
-    if label <= aut.alphabetSize
-        #todo
+    if label > aut.alphabetSize
+        throw(ArgumentError("Label is not in the alphabet."))
+    end
+
+    t = (label, target)
+    if !(t in aut.transitions[source])
+        push!(D[source], t)
     end
 end
