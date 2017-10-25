@@ -25,7 +25,7 @@ function add_states!(aut::Automaton, numberOfNewStates::Int)
      aut.states += numberOfNewStates
 end
 
-function add_transition!(aut::Automaton, source::Int64, label::Int64, target::Int64)
+function add_transition!(aut::Automaton, source::Int, label::Int, target::Int)
     if label > aut.alphabetSize
         throw(ArgumentError("Label is not in the alphabet."))
     end
